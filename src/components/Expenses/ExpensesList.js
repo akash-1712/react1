@@ -2,7 +2,6 @@ import "./ExpensesList.css";
 import ExpensesItems from "./ExpensesItems";
 
 const ExpensesList = (props) => {
-  let expensesConditional = <p>No items Found!</p>;
   if (props.items.length === 0) {
     return <h2 className="expenses-list__fallback">Found no Expenses.</h2>;
   }

@@ -9,6 +9,12 @@ function NewExpenseItems(props) {
   const selectedYear = (givenYear) => {
     setFilterYear(givenYear);
   };
+
+  const filteritems = props.expenses.filter((val) => {
+    const Year = val.date.toLocaleString("en-US", { year: "numeric" });
+    return Year === filterYear;
+  });
+
   return (
     <div>
       <Card className="expenses">
@@ -19,7 +25,7 @@ function NewExpenseItems(props) {
       </Card>
 
       <Card className="expenses">
-        {props.expenses.map((val) => {
+        {filteritems.map((val) => {
           return (
             <ExpensesItems
               key={val.id}
